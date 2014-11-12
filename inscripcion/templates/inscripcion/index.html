@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block h1 %}
+    Registra tu amigo secreto aquí
+{% endblock h1 %}
+
+{% block p %}
+    Ingresa el nombre que apareció en el papelito que recibiste. Tranquilo, es completamente anónimo :)
+{% endblock p %}
+
+{% block container %}
+    <form class="form-signin" role="form" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="amigo_secreto" placeholder="Nombre de tu amigo secreto" required autofocus>
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+    </form>
+{% endblock container %}

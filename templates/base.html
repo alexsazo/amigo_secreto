@@ -1,0 +1,62 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+    <title>{% block title_page %}Registro de amigo secreto{% endblock title_page %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'inscripcion/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'inscripcion/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'inscripcion/css/signin.css' %}" rel="stylesheet">
+
+  <body data-pinterest-extension-installed="cr1.35">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">{% block nav_bar_title %}Registro de amigo secreto{% endblock nav_bar_title %}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              {% include 'inscripcion/partials/nav-bar.html' %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">{% block great_container %}
+
+      <div class="starter-template">
+        <h1>{% block h1 %}{% endblock h1 %}</h1>
+        <p class="lead">{% block p %}{% endblock p %}</p>
+      </div>
+        {% block container %}
+        {% endblock container %}
+
+    {% endblock great_container %}
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'inscripcion/js/jquery.min.js' %}"></script>
+    <script src="{% static 'inscripcion/js/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'inscripcion/js/ie10-viewport-bug-workaround.js' %}"></script>
+
+
+</body></html>
