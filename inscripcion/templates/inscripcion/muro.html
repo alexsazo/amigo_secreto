@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block h1 %}
+    Muro
+{% endblock h1 %}
+{% block container %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Para</th>
+                <th>Mensaje</th>
+            </tr>
+            </thead>
+            {% for message in messages_list %}
+                <tbody>
+                <tr>
+                    <td>{{ message.pub_date.date }}</td>
+                    <td>{{ message.person }}</td>
+                    <td>{{ message.text }}</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <form class="form-signin" role="form" method="post" action="{% url 'post_message' %}">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="person" placeholder="Nombre de tu amigo secreto" required autofocus>
+        <br>
+        <input type="text" class="form-control" name="message" placeholder="Escribe aquí tu mensaje" required>
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Enviar</button>
+    </form>
+{% endblock container %}

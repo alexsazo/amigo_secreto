@@ -2,12 +2,20 @@
 {% load staticfiles %}
 
 {% block h1 %}
-    ¡Perfecto!
+    {% if exists %}
+        Oops :(
+    {% else %}
+        ¡Perfecto!
+    {% endif %}
 {% endblock h1 %}
 
 {% block p %}
     <br>
     <br>
-    Haz ingresado correctamente a {{ amigo.person }}<br><br>
-    Ahora sólo queda ponerte a trabajar para impresionar a tu amigo secreto. <br> ¡Éxito!
+    {% if exists %}
+        Ya ingresaron a {{ amigo }}... estás seguro que eres su amigo secreto? Pillo(a).
+    {% else %}
+        Haz ingresado correctamente a {{ amigo }}<br><br>
+        Ahora sólo queda ponerte a trabajar para impresionar a tu amigo secreto. <br> ¡Éxito!
+    {% endif %}
 {% endblock p %}
