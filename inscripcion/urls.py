@@ -9,4 +9,5 @@ urlpatterns = patterns('inscripcion.views',
                        url(r'^friends$', 'friends', name='friends'),
                        url(r'^muro$', 'muro', name='muro'),
                        url(r'^post$', 'post_message', name='post_message'),
+                       url(r'^retiro', 'retiro', name='retiro'),
                        )

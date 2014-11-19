@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block h1 %}
+    Inscripción a retiro espiritual 22 de Noviembre
+{% endblock h1 %}
+
+{% block h2 %}
+    Instrucciones e informacion de importancia
+{% endblock h2 %}
+{% block p %}
+    <br>
+    <br>
+Estaremos desde Viernes a Sábado en la noche. <br>El programa del retiro lo informaremos el fin de semana.
+<br><br> Atentos, porque es posible que sí tengan que cancelar algo de dinero.</p>
+    <p>
+Traer:
+<br>
+1. Traer ropa deportiva.
+<br>
+2. Traer carpa y saco de dormir.
+<br>
+3. Asegurarte de que tus amigos se inscriban hoy miércoles! Hoy pasaremos por junta de iglesia.
+{% endblock p %}
+
+{% block container %}
+    <form class="form-signin" role="form" method="post"">
+    {% csrf_token %}
+    <input type="text" class="form-control" name="rut" placeholder="R.U.T." required autofocus>
+    <br>
+    <input type="text" class="form-control" name="nombres" placeholder="Nombres (todos)" required>
+    <br>
+    <input type="text" class="form-control" name="apellidos" placeholder="Apellidos (todos)" required>
+    <br>
+    <input type="tel" class="form-control" name="celular" placeholder="Número de celular (chileno)" required>
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Inscribir!</button>
+    </form>
+{% endblock container %}

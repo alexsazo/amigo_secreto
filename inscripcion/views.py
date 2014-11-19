@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from inscripcion.models import Registro, Messages
+from inscripcion.models import Registro, Messages, Joven
 from datetime import datetime
 
 # Create your views here.
@@ -42,3 +42,17 @@ def post_message(request):
             m.save()
             messages_list = Messages.objects.all()
             return render(request, 'inscripcion/muro.html', {'messages_list': messages_list})
+
+def retiro(request):
+    if request.method == 'POST':
+        if Joven.objects.filter(rut__iexact=request.POST['rut']).count() > 0:
+            return render(request, 'inscripcion/retiro_detalle.html')
+        else:
+            j = Joven()
+            j.rut = request.POST['rut']
+            j.nombres = request.POST['nombres']
+            j.apellidos = request.POST['apellidos']
+            j.celular = request.POST['celular']
+            j.save()
+    return render(request, 'inscripcion/retiro_detalle.html')
+
